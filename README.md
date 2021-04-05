@@ -12,3 +12,7 @@ Emojis in domain names and URLs are becoming increasingly popular, so I thought 
 
 ## License
 Released under the [MIT License](https://opensource.org/licenses/MIT).
+
+See also:
+[aaronpk/emoji-detector-php](https://github.com/aaronpk/emoji-detector-php)
+[unicode.org](https://unicode.org/Public/emoji/13.1/emoji-test.txt)

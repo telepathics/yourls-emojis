@@ -10,11 +10,21 @@ Author URI: https://telepathics.xyz
 if( !defined( 'YOURLS_ABSPATH' ) ) die();
 require_once __DIR__ . '/vendor/autoload.php';
 
+/*
+ * Accept detected emojis
+ */
 yourls_add_filter( 'get_shorturl_charset', 'path_emojis_in_charset');
 function path_emojis_in_charset($in) {
-  // TODO add all available emojis to the charset
-  // temporarily only accepts characters in the following string:
-  return $in.'👋🖕🤓✨';
+  $available = '';
+  $detect_emoji = Emoji\detect_emoji(file_get_contents('https://unicode.org/Public/emoji/13.1/emoji-test.txt'));
+
+  if ( sizeof($detect_emoji) > 0 ) {
+    foreach ( $detect_emoji as $emoji ) {
+      $available .= $emoji['emoji'];
+    }
+  }
+
+  return $in.$available;
 }
 
 /*
