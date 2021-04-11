@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: YOURLS Emojis
-Description: Allows emojis in the custom short URLs
+Plugin Name: Emojis
+Description: Create an emoji-only short link, like http://sho.rt/✨ or http://sho.rt/😎🆒🔗
 Version: 1.0
 Author: telepathics
 Author URI: https://telepathics.xyz
@@ -38,7 +38,7 @@ function path_emojis_sanitize_url($unsafe_url) {
 }
 
 /*
- * filter wrong spacing whoops
+ * filter wrong spacing whoopsies
  * see @link https://github.com/YOURLS/YOURLS/issues/1303
  */
 yourls_add_filter( 'sanitize_url', 'fix_long_url' );
