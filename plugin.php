@@ -3,7 +3,7 @@
 Plugin Name: YOURLS Emojis
 Description: Allows emojis in the custom short URLs
 Version: 1.0
-Author: telepathics test
+Author: telepathics
 Author URI: https://telepathics.xyz
 */
 
@@ -15,16 +15,7 @@ require_once __DIR__ . '/vendor/autoload.php';
  */
 yourls_add_filter( 'get_shorturl_charset', 'path_emojis_in_charset');
 function path_emojis_in_charset($in) {
-  $available = '';
-  $detect_emoji = Emoji\detect_emoji(file_get_contents('https://unicode.org/Public/emoji/13.1/emoji-test.txt'));
-
-  if ( sizeof($detect_emoji) > 0 ) {
-    foreach ( $detect_emoji as $emoji ) {
-      $available .= $emoji['emoji'];
-    }
-  }
-
-  return $in.$available;
+  return $in . file_get_contents(__DIR__ . '/util/emojis.txt');
 }
 
 /*
@@ -42,4 +33,16 @@ function path_emojis_sanitize_url($unsafe_url) {
     return $clean_url;
   }
   return $unsafe_url;
+}
+
+/*
+ * filter wrong spacing whoops
+ * see @link https://github.com/YOURLS/YOURLS/issues/1303
+ */
+yourls_add_filter( 'sanitize_url', 'fix_long_url' );
+function fix_long_url( $url, $unsafe_url ) {
+  $search = array ( '%2520', '%2521', '%2522', '%2523', '%2524', '%2525', '%2526', '%2527', '%2528', '%2529', '%252A', '%252B', '%252C', '%252D', '%252E', '%252F', '%253D', '%253F', '%255C', '%255F' );
+  $replace = array ( '%20', '%21', '%22', '%23', '%24', '%25', '%26', '%27', '%28', '%29', '%2A', '%2B', '%2C', '%2D', '%2E', '%2F', '%3D', '%3F', '%5C', '%5F' );
+  $url = str_ireplace ( $search, $replace ,$url );
+  return yourls_apply_filter( 'after_fix_long_url', $url, $unsafe_url );
 }
