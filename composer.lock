@@ -4,33 +4,35 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9849e90fc5f34ea4d12311c8a4c4a0c4",
+    "content-hash": "8bbfc302bd9da7b07af7fd90ec7bfb97",
     "packages": [
         {
-            "name": "p3k/emoji-detector",
-            "version": "0.2.1",
+            "name": "steppinghat/emoji-detector",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/aaronpk/emoji-detector-php.git",
-                "reference": "fb0765845e554f04ccd2b594a7ab8ca44d804bab"
+                "url": "https://github.com/SteppingHat/php-emoji-detector.git",
+                "reference": "d2301e9553795e1ac2f3f2638438b3808654c57f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aaronpk/emoji-detector-php/zipball/fb0765845e554f04ccd2b594a7ab8ca44d804bab",
-                "reference": "fb0765845e554f04ccd2b594a7ab8ca44d804bab",
+                "url": "https://api.github.com/repos/SteppingHat/php-emoji-detector/zipball/d2301e9553795e1ac2f3f2638438b3808654c57f",
+                "reference": "d2301e9553795e1ac2f3f2638438b3808654c57f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3"
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.8"
+                "symfony/phpunit-bridge": "^5.0@dev"
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "src/Emoji.php"
-                ]
+                "psr-4": {
+                    "SteppingHat\\EmojiDetector\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -38,14 +40,13 @@
             ],
             "authors": [
                 {
-                    "name": "Aaron Parecki",
-                    "email": "aaron@parecki.com",
-                    "homepage": "https://aaronparecki.com/"
+                    "name": "Javan Eskander",
+                    "homepage": "https://javaneskander.com"
                 }
             ],
-            "description": "Detect and return all emoji found in a string",
-            "homepage": "https://github.com/aaronpk/emoji-detector-php",
-            "time": "2017-11-30T21:02:53+00:00"
+            "description": "Detect and validate emoji in an input string",
+            "homepage": "https://github.com/steppinghat/emoji-detector",
+            "time": "2021-03-18T06:03:22+00:00"
         }
     ],
     "packages-dev": [],

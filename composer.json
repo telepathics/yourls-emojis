@@ -1,5 +1,5 @@
 {
-    "require": {
-        "p3k/emoji-detector": "^0.2.1"
-    }
+  "require": {
+    "steppinghat/emoji-detector": "^1.1"
+  }
 }
