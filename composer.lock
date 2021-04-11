@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8bbfc302bd9da7b07af7fd90ec7bfb97",
+    "content-hash": "d8ae5b9fddab58bd68089f83a8564e1e",
     "packages": [
         {
             "name": "steppinghat/emoji-detector",
@@ -55,7 +55,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.2"
+    },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"
 }

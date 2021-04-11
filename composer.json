@@ -1,5 +1,10 @@
 {
+  "name": "telepathics/yourls-emojis",
+  "description": "A YOURLS plugin that allows emojis in the custom short URLs",
+  "license": "MIT",
+  "homepage": "https://github.com/telepathics/yourls-emojis",
   "require": {
+    "php": ">=7.2",
     "steppinghat/emoji-detector": "^1.1"
   }
 }
